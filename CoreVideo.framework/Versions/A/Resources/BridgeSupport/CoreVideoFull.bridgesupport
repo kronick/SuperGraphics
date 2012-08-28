@@ -1,0 +1,713 @@
+<?xml version='1.0'?>
+<signatures version='0.9'>
+<depends_on path='/System/Library/Frameworks/CoreFoundation.framework'/>
+<depends_on path='/System/Library/Frameworks/ApplicationServices.framework'/>
+<depends_on path='/System/Library/Frameworks/OpenGL.framework'/>
+<depends_on path='/System/Library/Frameworks/IOKit.framework'/>
+<depends_on path='/System/Library/Frameworks/IOSurface.framework'/>
+<depends_on path='/System/Library/Frameworks/CoreServices.framework'/>
+<struct name='CVFillExtendedPixelsCallBackData' type64='{_CVFillExtendedPixelsCallBackData=&quot;version&quot;q&quot;fillCallBack&quot;^?&quot;refCon&quot;^v}' type='{_CVFillExtendedPixelsCallBackData=&quot;version&quot;i&quot;fillCallBack&quot;^?&quot;refCon&quot;^v}'>
+<field name='version'/>
+<field name='fillCallBack'/>
+<field name='refCon'/>
+</struct>
+<struct name='CVPlanarComponentInfo' type='{CVPlanarComponentInfo=&quot;offset&quot;i&quot;rowBytes&quot;I}'>
+<field name='offset'/>
+<field name='rowBytes'/>
+</struct>
+<struct name='CVPlanarPixelBufferInfo' type='{CVPlanarPixelBufferInfo=&quot;componentInfo&quot;[1{CVPlanarComponentInfo=&quot;offset&quot;i&quot;rowBytes&quot;I}]}'>
+<field name='componentInfo'/>
+</struct>
+<struct name='CVPlanarPixelBufferInfo_YCbCrPlanar' type='{CVPlanarPixelBufferInfo_YCbCrPlanar=&quot;componentInfoY&quot;{CVPlanarComponentInfo=&quot;offset&quot;i&quot;rowBytes&quot;I}&quot;componentInfoCb&quot;{CVPlanarComponentInfo=&quot;offset&quot;i&quot;rowBytes&quot;I}&quot;componentInfoCr&quot;{CVPlanarComponentInfo=&quot;offset&quot;i&quot;rowBytes&quot;I}}'>
+<field name='componentInfoY'/>
+<field name='componentInfoCb'/>
+<field name='componentInfoCr'/>
+</struct>
+<struct name='CVSMPTETime' type='{CVSMPTETime=&quot;subframes&quot;s&quot;subframeDivisor&quot;s&quot;counter&quot;I&quot;type&quot;I&quot;flags&quot;I&quot;hours&quot;s&quot;minutes&quot;s&quot;seconds&quot;s&quot;frames&quot;s}'>
+<field name='subframes'/>
+<field name='subframeDivisor'/>
+<field name='counter'/>
+<field name='type'/>
+<field name='flags'/>
+<field name='hours'/>
+<field name='minutes'/>
+<field name='seconds'/>
+<field name='frames'/>
+</struct>
+<struct name='CVTime' type='{_CVTime=&quot;timeValue&quot;q&quot;timeScale&quot;i&quot;flags&quot;i}'>
+<field name='timeValue'/>
+<field name='timeScale'/>
+<field name='flags'/>
+</struct>
+<struct name='CVTimeStamp' type='{_CVTimeStamp=&quot;version&quot;I&quot;videoTimeScale&quot;i&quot;videoTime&quot;q&quot;hostTime&quot;Q&quot;rateScalar&quot;d&quot;videoRefreshPeriod&quot;q&quot;smpteTime&quot;{CVSMPTETime=&quot;subframes&quot;s&quot;subframeDivisor&quot;s&quot;counter&quot;I&quot;type&quot;I&quot;flags&quot;I&quot;hours&quot;s&quot;minutes&quot;s&quot;seconds&quot;s&quot;frames&quot;s}&quot;flags&quot;Q&quot;reserved&quot;Q}'>
+<field name='version'/>
+<field name='videoTimeScale'/>
+<field name='videoTime'/>
+<field name='hostTime'/>
+<field name='rateScalar'/>
+<field name='videoRefreshPeriod'/>
+<field name='smpteTime'/>
+<field name='flags'/>
+<field name='reserved'/>
+</struct>
+<cftype name='CVDisplayLinkRef' gettypeid_func='CVDisplayLinkGetTypeID' type='^{__CVDisplayLink=}' tollfree='__NSCFType'/>
+<cftype name='CVOpenGLBufferPoolRef' gettypeid_func='CVOpenGLBufferPoolGetTypeID' type='^{__CVOpenGLBufferPool=}' tollfree='__NSCFType'/>
+<cftype name='CVOpenGLTextureCacheRef' gettypeid_func='CVOpenGLTextureCacheGetTypeID' type='^{__CVOpenGLTextureCache=}' tollfree='__NSCFType'/>
+<cftype name='CVPixelBufferPoolRef' gettypeid_func='CVPixelBufferPoolGetTypeID' type='^{__CVPixelBufferPool=}' tollfree='__NSCFType'/>
+<constant name='kCVBufferMovieTimeKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVBufferNonPropagatedAttachmentsKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVBufferPropagatedAttachmentsKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVBufferTimeScaleKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVBufferTimeValueKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferCGColorSpaceKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocationBottomFieldKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocationTopFieldKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocation_Bottom' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocation_BottomLeft' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocation_Center' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocation_DV420' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocation_Left' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocation_Top' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaLocation_TopLeft' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaSubsamplingKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaSubsampling_411' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaSubsampling_420' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferChromaSubsampling_422' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferCleanApertureHeightKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferCleanApertureHorizontalOffsetKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferCleanApertureKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferCleanApertureVerticalOffsetKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferCleanApertureWidthKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferColorPrimariesKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferColorPrimaries_EBU_3213' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferColorPrimaries_ITU_R_709_2' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferColorPrimaries_SMPTE_C' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferDisplayDimensionsKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferDisplayHeightKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferDisplayWidthKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferFieldCountKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferFieldDetailKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferFieldDetailSpatialFirstLineEarly' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferFieldDetailSpatialFirstLineLate' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferFieldDetailTemporalBottomFirst' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferFieldDetailTemporalTopFirst' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferGammaLevelKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferICCProfileKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferPixelAspectRatioHorizontalSpacingKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferPixelAspectRatioKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferPixelAspectRatioVerticalSpacingKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferPreferredCleanApertureKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferTransferFunctionKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferTransferFunction_EBU_3213' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferTransferFunction_ITU_R_709_2' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferTransferFunction_SMPTE_240M_1995' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferTransferFunction_SMPTE_C' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferTransferFunction_UseGamma' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferYCbCrMatrixKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferYCbCrMatrix_ITU_R_601_4' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferYCbCrMatrix_ITU_R_709_2' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVImageBufferYCbCrMatrix_SMPTE_240M_1995' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVIndefiniteTime' declared_type='CVTime' const='true' type='{_CVTime=qii}'/>
+<constant name='kCVOpenGLBufferHeight' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLBufferInternalFormat' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLBufferMaximumMipmapLevel' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLBufferPoolMaximumBufferAgeKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLBufferPoolMinimumBufferCountKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLBufferTarget' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLBufferWidth' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLTextureCacheChromaSamplingModeAutomatic' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLTextureCacheChromaSamplingModeBestPerformance' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLTextureCacheChromaSamplingModeHighestQuality' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVOpenGLTextureCacheChromaSamplingModeKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferBytesPerRowAlignmentKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferCGBitmapContextCompatibilityKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferCGImageCompatibilityKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferExtendedPixelsBottomKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferExtendedPixelsLeftKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferExtendedPixelsRightKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferExtendedPixelsTopKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferHeightKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferIOSurfaceCoreAnimationCompatibilityKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferIOSurfaceOpenGLFBOCompatibilityKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferIOSurfaceOpenGLTextureCompatibilityKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferIOSurfacePropertiesKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferMemoryAllocatorKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferOpenGLCompatibilityKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferPixelFormatTypeKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferPlaneAlignmentKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferPoolMaximumBufferAgeKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferPoolMinimumBufferCountKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelBufferWidthKey' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatBitsPerBlock' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatBlackBlock' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatBlockHeight' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatBlockHorizontalAlignment' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatBlockVerticalAlignment' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatBlockWidth' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatCGBitmapContextCompatibility' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatCGBitmapInfo' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatCGImageCompatibility' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatCodecType' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatConstant' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatFillExtendedPixelsCallback' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatFourCC' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatHorizontalSubsampling' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatName' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatOpenGLCompatibility' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatOpenGLFormat' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatOpenGLInternalFormat' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatOpenGLType' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatPlanes' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatQDCompatibility' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVPixelFormatVerticalSubsampling' declared_type='CFStringRef' const='true' type='^{__CFString=}'/>
+<constant name='kCVZeroTime' declared_type='CVTime' const='true' type='{_CVTime=qii}'/>
+<enum name='COREVIDEO_SUPPORTS_COLORSPACE' value='1'/>
+<enum name='COREVIDEO_SUPPORTS_DISPLAYLINK' value='1'/>
+<enum name='COREVIDEO_SUPPORTS_OPENGL' value='1'/>
+<enum name='kCVAttachmentMode_ShouldNotPropagate' value='0'/>
+<enum name='kCVAttachmentMode_ShouldPropagate' value='1'/>
+<enum name='kCVPixelBufferLock_ReadOnly' value='1'/>
+<enum name='kCVPixelFormatType_16BE555' value='16'/>
+<enum name='kCVPixelFormatType_16BE565' value='1110783541'/>
+<enum name='kCVPixelFormatType_16Gray' value='1647392359'/>
+<enum name='kCVPixelFormatType_16LE555' value='1278555445'/>
+<enum name='kCVPixelFormatType_16LE5551' value='892679473'/>
+<enum name='kCVPixelFormatType_16LE565' value='1278555701'/>
+<enum name='kCVPixelFormatType_1IndexedGray_WhiteIsZero' value='33'/>
+<enum name='kCVPixelFormatType_1Monochrome' value='1'/>
+<enum name='kCVPixelFormatType_24BGR' value='842285639'/>
+<enum name='kCVPixelFormatType_24RGB' value='24'/>
+<enum name='kCVPixelFormatType_2Indexed' value='2'/>
+<enum name='kCVPixelFormatType_2IndexedGray_WhiteIsZero' value='34'/>
+<enum name='kCVPixelFormatType_32ABGR' value='1094862674'/>
+<enum name='kCVPixelFormatType_32ARGB' value='32'/>
+<enum name='kCVPixelFormatType_32AlphaGray' value='1647522401'/>
+<enum name='kCVPixelFormatType_32BGRA' value='1111970369'/>
+<enum name='kCVPixelFormatType_32RGBA' value='1380401729'/>
+<enum name='kCVPixelFormatType_420YpCbCr8Planar' value='2033463856'/>
+<enum name='kCVPixelFormatType_422YpCbCr10' value='1983000880'/>
+<enum name='kCVPixelFormatType_422YpCbCr16' value='1983000886'/>
+<enum name='kCVPixelFormatType_422YpCbCr8' value='846624121'/>
+<enum name='kCVPixelFormatType_422YpCbCr_4A_8BiPlanar' value='1630697081'/>
+<enum name='kCVPixelFormatType_4444YpCbCrA8' value='1983131704'/>
+<enum name='kCVPixelFormatType_4444YpCbCrA8R' value='1916022840'/>
+<enum name='kCVPixelFormatType_444YpCbCr10' value='1983131952'/>
+<enum name='kCVPixelFormatType_444YpCbCr8' value='1983066168'/>
+<enum name='kCVPixelFormatType_48RGB' value='1647589490'/>
+<enum name='kCVPixelFormatType_4Indexed' value='4'/>
+<enum name='kCVPixelFormatType_4IndexedGray_WhiteIsZero' value='36'/>
+<enum name='kCVPixelFormatType_64ARGB' value='1647719521'/>
+<enum name='kCVPixelFormatType_8Indexed' value='8'/>
+<enum name='kCVPixelFormatType_8IndexedGray_WhiteIsZero' value='40'/>
+<enum name='kCVReturnAllocationFailed' value='-6662'/>
+<enum name='kCVReturnDisplayLinkAlreadyRunning' value='-6671'/>
+<enum name='kCVReturnDisplayLinkCallbacksNotSet' value='-6673'/>
+<enum name='kCVReturnDisplayLinkNotRunning' value='-6672'/>
+<enum name='kCVReturnError' value='-6660'/>
+<enum name='kCVReturnFirst' value='-6660'/>
+<enum name='kCVReturnInvalidArgument' value='-6661'/>
+<enum name='kCVReturnInvalidDisplay' value='-6670'/>
+<enum name='kCVReturnInvalidPixelBufferAttributes' value='-6682'/>
+<enum name='kCVReturnInvalidPixelFormat' value='-6680'/>
+<enum name='kCVReturnInvalidPoolAttributes' value='-6691'/>
+<enum name='kCVReturnInvalidSize' value='-6681'/>
+<enum name='kCVReturnLast' value='-6699'/>
+<enum name='kCVReturnPixelBufferNotOpenGLCompatible' value='-6683'/>
+<enum name='kCVReturnPoolAllocationFailed' value='-6690'/>
+<enum name='kCVReturnSuccess' value='0'/>
+<enum name='kCVSMPTETimeRunning' value='2'/>
+<enum name='kCVSMPTETimeType24' value='0'/>
+<enum name='kCVSMPTETimeType25' value='1'/>
+<enum name='kCVSMPTETimeType2997' value='4'/>
+<enum name='kCVSMPTETimeType2997Drop' value='5'/>
+<enum name='kCVSMPTETimeType30' value='3'/>
+<enum name='kCVSMPTETimeType30Drop' value='2'/>
+<enum name='kCVSMPTETimeType5994' value='7'/>
+<enum name='kCVSMPTETimeType60' value='6'/>
+<enum name='kCVSMPTETimeValid' value='1'/>
+<enum name='kCVTimeIsIndefinite' value='1'/>
+<enum name='kCVTimeStampBottomField' value='131072'/>
+<enum name='kCVTimeStampHostTimeValid' value='2'/>
+<enum name='kCVTimeStampIsInterlaced' value='196608'/>
+<enum name='kCVTimeStampRateScalarValid' value='16'/>
+<enum name='kCVTimeStampSMPTETimeValid' value='4'/>
+<enum name='kCVTimeStampTopField' value='65536'/>
+<enum name='kCVTimeStampVideoHostTimeValid' value='3'/>
+<enum name='kCVTimeStampVideoRefreshPeriodValid' value='8'/>
+<enum name='kCVTimeStampVideoTimeValid' value='1'/>
+<function name='CVBufferGetAttachment'>
+<arg name='buffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+<arg name='key' declared_type='CFStringRef' type='^{__CFString=}'/>
+<arg name='attachmentMode' declared_type='CVAttachmentMode*' type='^I' type_modifier='o'/>
+<retval declared_type='CFTypeRef' type='@'/>
+</function>
+<function name='CVBufferGetAttachments'>
+<arg name='buffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+<arg name='attachmentMode' declared_type='CVAttachmentMode' type='I'/>
+<retval declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+</function>
+<function name='CVBufferPropagateAttachments'>
+<arg name='sourceBuffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+<arg name='destinationBuffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVBufferRelease'>
+<arg name='buffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVBufferRemoveAllAttachments'>
+<arg name='buffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVBufferRemoveAttachment'>
+<arg name='buffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+<arg name='key' declared_type='CFStringRef' type='^{__CFString=}'/>
+</function>
+<function name='CVBufferRetain'>
+<arg name='buffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVBufferSetAttachment'>
+<arg name='buffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+<arg name='key' declared_type='CFStringRef' type='^{__CFString=}'/>
+<arg name='value' declared_type='CFTypeRef' type='@'/>
+<arg name='attachmentMode' declared_type='CVAttachmentMode' type='I'/>
+</function>
+<function name='CVBufferSetAttachments'>
+<arg name='buffer' declared_type='CVBufferRef' type='^{__CVBuffer=}'/>
+<arg name='theAttachments' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='attachmentMode' declared_type='CVAttachmentMode' type='I'/>
+</function>
+<function name='CVDisplayLinkCreateWithActiveCGDisplays'>
+<arg name='displayLinkOut' declared_type='CVDisplayLinkRef*' type='^^{__CVDisplayLink}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkCreateWithCGDisplay'>
+<arg name='displayID' declared_type='CGDirectDisplayID' type='I'/>
+<arg name='displayLinkOut' declared_type='CVDisplayLinkRef*' type='^^{__CVDisplayLink}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkCreateWithCGDisplays'>
+<arg name='displayArray' c_array_length_in_arg='1' declared_type='CGDirectDisplayID*' type='^I' type_modifier='n'/>
+<arg name='count' declared_type='CFIndex' type64='q' type='l'/>
+<arg name='displayLinkOut' declared_type='CVDisplayLinkRef*' type='^^{__CVDisplayLink}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkCreateWithOpenGLDisplayMask'>
+<arg name='mask' declared_type='CGOpenGLDisplayMask' type='I'/>
+<arg name='displayLinkOut' declared_type='CVDisplayLinkRef*' type='^^{__CVDisplayLink}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkGetActualOutputVideoRefreshPeriod'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<retval declared_type='double' type='d'/>
+</function>
+<function name='CVDisplayLinkGetCurrentCGDisplay'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<retval declared_type='CGDirectDisplayID' type='I'/>
+</function>
+<function name='CVDisplayLinkGetCurrentTime'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<arg name='outTime' declared_type='CVTimeStamp*' type='^{_CVTimeStamp=IiqQdq{CVSMPTETime=ssIIIssss}QQ}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkGetNominalOutputVideoRefreshPeriod'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<retval declared_type='CVTime' type='{_CVTime=qii}'/>
+</function>
+<function name='CVDisplayLinkGetOutputVideoLatency'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<retval declared_type='CVTime' type='{_CVTime=qii}'/>
+</function>
+<function name='CVDisplayLinkGetTypeID'>
+<retval declared_type='CFTypeID' type64='Q' type='L'/>
+</function>
+<function name='CVDisplayLinkIsRunning'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<retval declared_type='Boolean' type='B'/>
+</function>
+<function name='CVDisplayLinkRelease'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+</function>
+<function name='CVDisplayLinkRetain'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<retval declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+</function>
+<function name='CVDisplayLinkSetCurrentCGDisplay'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<arg name='displayID' declared_type='CGDirectDisplayID' type='I'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<arg name='cglContext' declared_type='CGLContextObj' type='^{_CGLContextObject=}' type_modifier='n'/>
+<arg name='cglPixelFormat' declared_type='CGLPixelFormatObj' type='^{_CGLPixelFormatObject=}' type_modifier='n'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkSetOutputCallback'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<arg name='callback' function_pointer='true' declared_type='CVDisplayLinkOutputCallback' type='^?' type_modifier='n'>
+<arg declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<arg declared_type='CVTimeStamp*' const='true' type='^{_CVTimeStamp=IiqQdq{CVSMPTETime=ssIIIssss}QQ}'/>
+<arg declared_type='CVTimeStamp*' const='true' type='^{_CVTimeStamp=IiqQdq{CVSMPTETime=ssIIIssss}QQ}'/>
+<arg declared_type='CVOptionFlags' type='Q'/>
+<arg declared_type='CVOptionFlags*' type='^Q'/>
+<arg declared_type='void*' type='^v'/>
+<retval declared_type='CVReturn' type='i'/>
+</arg>
+<arg name='userInfo' declared_type='void*' type='^v' type_modifier='n'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkStart'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkStop'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVDisplayLinkTranslateTime'>
+<arg name='displayLink' declared_type='CVDisplayLinkRef' type='^{__CVDisplayLink=}'/>
+<arg name='inTime' declared_type='CVTimeStamp*' const='true' type='^{_CVTimeStamp=IiqQdq{CVSMPTETime=ssIIIssss}QQ}' type_modifier='n'/>
+<arg name='outTime' declared_type='CVTimeStamp*' type='^{_CVTimeStamp=IiqQdq{CVSMPTETime=ssIIIssss}QQ}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVGetCurrentHostTime'>
+<retval declared_type='uint64_t' type='Q'/>
+</function>
+<function name='CVGetHostClockFrequency'>
+<retval declared_type='double' type='d'/>
+</function>
+<function name='CVGetHostClockMinimumTimeDelta'>
+<retval declared_type='uint32_t' type='I'/>
+</function>
+<function name='CVImageBufferGetCleanRect'>
+<arg name='imageBuffer' declared_type='CVImageBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CGRect' type64='{CGRect={CGPoint=dd}{CGSize=dd}}' type='{CGRect={CGPoint=ff}{CGSize=ff}}'/>
+</function>
+<function name='CVImageBufferGetColorSpace'>
+<arg name='imageBuffer' declared_type='CVImageBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CGColorSpaceRef' type='^{CGColorSpace=}'/>
+</function>
+<function name='CVImageBufferGetDisplaySize'>
+<arg name='imageBuffer' declared_type='CVImageBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CGSize' type64='{CGSize=dd}' type='{CGSize=ff}'/>
+</function>
+<function name='CVImageBufferGetEncodedSize'>
+<arg name='imageBuffer' declared_type='CVImageBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CGSize' type64='{CGSize=dd}' type='{CGSize=ff}'/>
+</function>
+<function name='CVOpenGLBufferAttach'>
+<arg name='openGLBuffer' declared_type='CVOpenGLBufferRef' type='^{__CVBuffer=}'/>
+<arg name='cglContext' declared_type='CGLContextObj' type='^{_CGLContextObject=}' type_modifier='n'/>
+<arg name='face' declared_type='GLenum' type='I'/>
+<arg name='level' declared_type='GLint' type='i'/>
+<arg name='screen' declared_type='GLint' type='i'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVOpenGLBufferCreate'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='width' declared_type='size_t' type64='Q' type='L'/>
+<arg name='height' declared_type='size_t' type64='Q' type='L'/>
+<arg name='attributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='bufferOut' declared_type='CVOpenGLBufferRef*' type='^^{__CVBuffer}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVOpenGLBufferGetAttributes'>
+<arg name='openGLBuffer' declared_type='CVOpenGLBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+</function>
+<function name='CVOpenGLBufferGetTypeID'>
+<retval declared_type='CFTypeID' type64='Q' type='L'/>
+</function>
+<function name='CVOpenGLBufferPoolCreate'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='poolAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='openGLBufferAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='poolOut' declared_type='CVOpenGLBufferPoolRef*' type='^^{__CVOpenGLBufferPool}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVOpenGLBufferPoolCreateOpenGLBuffer'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='openGLBufferPool' declared_type='CVOpenGLBufferPoolRef' type='^{__CVOpenGLBufferPool=}'/>
+<arg name='openGLBufferOut' declared_type='CVOpenGLBufferRef*' type='^^{__CVBuffer}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVOpenGLBufferPoolGetAttributes'>
+<arg name='pool' declared_type='CVOpenGLBufferPoolRef' type='^{__CVOpenGLBufferPool=}'/>
+<retval declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+</function>
+<function name='CVOpenGLBufferPoolGetOpenGLBufferAttributes'>
+<arg name='pool' declared_type='CVOpenGLBufferPoolRef' type='^{__CVOpenGLBufferPool=}'/>
+<retval declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+</function>
+<function name='CVOpenGLBufferPoolGetTypeID'>
+<retval declared_type='CFTypeID' type64='Q' type='L'/>
+</function>
+<function name='CVOpenGLBufferPoolRelease'>
+<arg name='openGLBufferPool' declared_type='CVOpenGLBufferPoolRef' type='^{__CVOpenGLBufferPool=}'/>
+</function>
+<function name='CVOpenGLBufferPoolRetain'>
+<arg name='openGLBufferPool' declared_type='CVOpenGLBufferPoolRef' type='^{__CVOpenGLBufferPool=}'/>
+<retval declared_type='CVOpenGLBufferPoolRef' type='^{__CVOpenGLBufferPool=}'/>
+</function>
+<function name='CVOpenGLBufferRelease'>
+<arg name='buffer' declared_type='CVOpenGLBufferRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVOpenGLBufferRetain'>
+<arg name='buffer' declared_type='CVOpenGLBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CVOpenGLBufferRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVOpenGLTextureCacheCreate'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='cacheAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='cglContext' declared_type='CGLContextObj' type='^{_CGLContextObject=}' type_modifier='n'/>
+<arg name='cglPixelFormat' declared_type='CGLPixelFormatObj' type='^{_CGLPixelFormatObject=}' type_modifier='n'/>
+<arg name='textureAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='cacheOut' declared_type='CVOpenGLTextureCacheRef*' type='^^{__CVOpenGLTextureCache}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVOpenGLTextureCacheCreateTextureFromImage'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='textureCache' declared_type='CVOpenGLTextureCacheRef' type='^{__CVOpenGLTextureCache=}'/>
+<arg name='sourceImage' declared_type='CVImageBufferRef' type='^{__CVBuffer=}' type_modifier='n'/>
+<arg name='attributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}' type_modifier='n'/>
+<arg name='textureOut' declared_type='CVOpenGLTextureRef*' type='^^{__CVBuffer}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVOpenGLTextureCacheFlush'>
+<arg name='textureCache' declared_type='CVOpenGLTextureCacheRef' type='^{__CVOpenGLTextureCache=}'/>
+<arg name='options' declared_type='CVOptionFlags' type='Q'/>
+</function>
+<function name='CVOpenGLTextureCacheGetTypeID'>
+<retval declared_type='CFTypeID' type64='Q' type='L'/>
+</function>
+<function name='CVOpenGLTextureCacheRelease'>
+<arg name='textureCache' declared_type='CVOpenGLTextureCacheRef' type='^{__CVOpenGLTextureCache=}'/>
+</function>
+<function name='CVOpenGLTextureCacheRetain'>
+<arg name='textureCache' declared_type='CVOpenGLTextureCacheRef' type='^{__CVOpenGLTextureCache=}'/>
+<retval declared_type='CVOpenGLTextureCacheRef' type='^{__CVOpenGLTextureCache=}'/>
+</function>
+<function name='CVOpenGLTextureGetCleanTexCoords'>
+<arg name='image' declared_type='CVOpenGLTextureRef' type='^{__CVBuffer=}'/>
+<arg name='lowerLeft' declared_type='GLfloat*' c_array_of_fixed_length='2' type='^f' type_modifier='o'/>
+<arg name='lowerRight' declared_type='GLfloat*' c_array_of_fixed_length='2' type='^f' type_modifier='o'/>
+<arg name='upperRight' declared_type='GLfloat*' c_array_of_fixed_length='2' type='^f' type_modifier='o'/>
+<arg name='upperLeft' declared_type='GLfloat*' c_array_of_fixed_length='2' type='^f' type_modifier='o'/>
+</function>
+<function name='CVOpenGLTextureGetName'>
+<arg name='image' declared_type='CVOpenGLTextureRef' type='^{__CVBuffer=}'/>
+<retval declared_type='GLuint' type='I'/>
+</function>
+<function name='CVOpenGLTextureGetTarget'>
+<arg name='image' declared_type='CVOpenGLTextureRef' type='^{__CVBuffer=}'/>
+<retval declared_type='GLenum' type='I'/>
+</function>
+<function name='CVOpenGLTextureGetTypeID'>
+<retval declared_type='CFTypeID' type64='Q' type='L'/>
+</function>
+<function name='CVOpenGLTextureIsFlipped'>
+<arg name='image' declared_type='CVOpenGLTextureRef' type='^{__CVBuffer=}'/>
+<retval declared_type='Boolean' type='B'/>
+</function>
+<function name='CVOpenGLTextureRelease'>
+<arg name='texture' declared_type='CVOpenGLTextureRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVOpenGLTextureRetain'>
+<arg name='texture' declared_type='CVOpenGLTextureRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CVOpenGLTextureRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVPixelBufferCreate'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='width' declared_type='size_t' type64='Q' type='L'/>
+<arg name='height' declared_type='size_t' type64='Q' type='L'/>
+<arg name='pixelFormatType' declared_type='OSType' type64='I' type='L'/>
+<arg name='pixelBufferAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='pixelBufferOut' declared_type='CVPixelBufferRef*' type='^^{__CVBuffer}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferCreateResolvedAttributesDictionary'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='attributes' declared_type='CFArrayRef' type='^{__CFArray=}'/>
+<arg name='resolvedDictionaryOut' declared_type='CFDictionaryRef*' type='r^^{__CFDictionary}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferCreateWithBytes'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='width' declared_type='size_t' type64='Q' type='L'/>
+<arg name='height' declared_type='size_t' type64='Q' type='L'/>
+<arg name='pixelFormatType' declared_type='OSType' type64='I' type='L'/>
+<arg name='baseAddress' declared_type='void*' c_array_of_variable_length='true' type='^v' type_modifier='n'/>
+<arg name='bytesPerRow' declared_type='size_t' type64='Q' type='L'/>
+<arg name='releaseCallback' function_pointer='true' declared_type='CVPixelBufferReleaseBytesCallback' type='^?'>
+<arg declared_type='void*' type='^v'/>
+<arg declared_type='void*' const='true' type='^v'/>
+<retval declared_type='void' type='v'/>
+</arg>
+<arg name='releaseRefCon' declared_type='void*' type='^v' type_modifier='n'/>
+<arg name='pixelBufferAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='pixelBufferOut' declared_type='CVPixelBufferRef*' type='^^{__CVBuffer}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferCreateWithIOSurface'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='surface' declared_type='IOSurfaceRef' type='^{__IOSurface=}'/>
+<arg name='pixelBufferAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='pixelBufferOut' declared_type='CVPixelBufferRef*' type='^^{__CVBuffer}'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferCreateWithPlanarBytes'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='width' declared_type='size_t' type64='Q' type='L'/>
+<arg name='height' declared_type='size_t' type64='Q' type='L'/>
+<arg name='pixelFormatType' declared_type='OSType' type64='I' type='L'/>
+<arg name='dataPtr' declared_type='void*' type='^v' type_modifier='n'/>
+<arg name='dataSize' declared_type='size_t' type64='Q' type='L'/>
+<arg name='numberOfPlanes' declared_type='size_t' type64='Q' type='L'/>
+<arg name='planeBaseAddress' declared_type='void**' c_array_of_variable_length='true' type='^^v' type_modifier='n'/>
+<arg name='planeWidth' declared_type='size_t*' type64='^Q' c_array_of_variable_length='true' type='^I' type_modifier='n'/>
+<arg name='planeHeight' declared_type='size_t*' type64='^Q' c_array_of_variable_length='true' type='^I' type_modifier='n'/>
+<arg name='planeBytesPerRow' declared_type='size_t*' type64='^Q' c_array_of_variable_length='true' type='^I' type_modifier='n'/>
+<arg name='releaseCallback' function_pointer='true' declared_type='CVPixelBufferReleasePlanarBytesCallback' type='^?' type_modifier='n'>
+<arg declared_type='void*' type='^v'/>
+<arg declared_type='void*' const='true' type='^v'/>
+<arg declared_type='size_t' type64='Q' type='L'/>
+<arg declared_type='size_t' type64='Q' type='L'/>
+<arg declared_type='void**' const='true' type='^^v'/>
+<retval declared_type='void' type='v'/>
+</arg>
+<arg name='releaseRefCon' declared_type='void*' type='^v' type_modifier='n'/>
+<arg name='pixelBufferAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='pixelBufferOut' declared_type='CVPixelBufferRef*' type='^^{__CVBuffer}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferFillExtendedPixels'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferGetBaseAddress'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='void*' type='^v'/>
+</function>
+<function name='CVPixelBufferGetBaseAddressOfPlane'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<arg name='planeIndex' declared_type='size_t' type64='Q' type='L'/>
+<retval declared_type='void*' type='^v'/>
+</function>
+<function name='CVPixelBufferGetBytesPerRow'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='size_t' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferGetBytesPerRowOfPlane'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<arg name='planeIndex' declared_type='size_t' type64='Q' type='L'/>
+<retval declared_type='size_t' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferGetDataSize'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='size_t' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferGetExtendedPixels'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<arg name='extraColumnsOnLeft' declared_type='size_t*' type64='^Q' type='^I' type_modifier='o'/>
+<arg name='extraColumnsOnRight' declared_type='size_t*' type64='^Q' type='^I' type_modifier='o'/>
+<arg name='extraRowsOnTop' declared_type='size_t*' type64='^Q' type='^I' type_modifier='o'/>
+<arg name='extraRowsOnBottom' declared_type='size_t*' type64='^Q' type='^I' type_modifier='o'/>
+</function>
+<function name='CVPixelBufferGetHeight'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='size_t' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferGetHeightOfPlane'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<arg name='planeIndex' declared_type='size_t' type64='Q' type='L'/>
+<retval declared_type='size_t' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferGetIOSurface'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='IOSurfaceRef' type='^{__IOSurface=}'/>
+</function>
+<function name='CVPixelBufferGetPixelFormatType'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='OSType' type64='I' type='L'/>
+</function>
+<function name='CVPixelBufferGetPlaneCount'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='size_t' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferGetTypeID'>
+<retval declared_type='CFTypeID' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferGetWidth'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='size_t' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferGetWidthOfPlane'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<arg name='planeIndex' declared_type='size_t' type64='Q' type='L'/>
+<retval declared_type='size_t' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferIsPlanar'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='Boolean' type='B'/>
+</function>
+<function name='CVPixelBufferLockBaseAddress'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<arg name='lockFlags' declared_type='CVOptionFlags' type='Q'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferPoolCreate'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='poolAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='pixelBufferAttributes' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='poolOut' declared_type='CVPixelBufferPoolRef*' type='^^{__CVPixelBufferPool}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferPoolCreatePixelBuffer'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='pixelBufferPool' declared_type='CVPixelBufferPoolRef' type='^{__CVPixelBufferPool=}'/>
+<arg name='pixelBufferOut' declared_type='CVPixelBufferRef*' type='^^{__CVBuffer}' type_modifier='o'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelBufferPoolGetAttributes'>
+<arg name='pool' declared_type='CVPixelBufferPoolRef' type='^{__CVPixelBufferPool=}'/>
+<retval declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+</function>
+<function name='CVPixelBufferPoolGetPixelBufferAttributes'>
+<arg name='pool' declared_type='CVPixelBufferPoolRef' type='^{__CVPixelBufferPool=}'/>
+<retval declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+</function>
+<function name='CVPixelBufferPoolGetTypeID'>
+<retval declared_type='CFTypeID' type64='Q' type='L'/>
+</function>
+<function name='CVPixelBufferPoolRelease'>
+<arg name='pixelBufferPool' declared_type='CVPixelBufferPoolRef' type='^{__CVPixelBufferPool=}'/>
+</function>
+<function name='CVPixelBufferPoolRetain'>
+<arg name='pixelBufferPool' declared_type='CVPixelBufferPoolRef' type='^{__CVPixelBufferPool=}'/>
+<retval declared_type='CVPixelBufferPoolRef' type='^{__CVPixelBufferPool=}'/>
+</function>
+<function name='CVPixelBufferRelease'>
+<arg name='texture' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVPixelBufferRetain'>
+<arg name='texture' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<retval declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+</function>
+<function name='CVPixelBufferUnlockBaseAddress'>
+<arg name='pixelBuffer' declared_type='CVPixelBufferRef' type='^{__CVBuffer=}'/>
+<arg name='unlockFlags' declared_type='CVOptionFlags' type='Q'/>
+<retval declared_type='CVReturn' type='i'/>
+</function>
+<function name='CVPixelFormatDescriptionArrayCreateWithAllPixelFormatTypes'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<retval declared_type='CFArrayRef' type='^{__CFArray=}'/>
+</function>
+<function name='CVPixelFormatDescriptionCreateWithPixelFormatType'>
+<arg name='allocator' declared_type='CFAllocatorRef' type='^{__CFAllocator=}'/>
+<arg name='pixelFormat' declared_type='OSType' type64='I' type='L'/>
+<retval declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+</function>
+<function name='CVPixelFormatDescriptionRegisterDescriptionWithPixelFormatType'>
+<arg name='description' declared_type='CFDictionaryRef' type='^{__CFDictionary=}'/>
+<arg name='pixelFormat' declared_type='OSType' type64='I' type='L'/>
+</function>
+</signatures>
