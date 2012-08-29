@@ -103,7 +103,7 @@ void ofxSVGParticle::draw() {
     if(blur) {
         float originalOpacity = obj->opacity;
         //obj->setOpacity(255 / ((float)positionSteps.size()+1));
-        for(int i=0; i<positionSteps.size(); i+=8) {
+        for(int i=0; i<positionSteps.size(); i+=2) {
             obj->setOpacity((positionSteps.size() - i) / (float)positionSteps.size() * 32);
             ofPushMatrix();
             ofTranslate(positionSteps[i]);
@@ -127,8 +127,8 @@ void ofxSVGParticle::draw() {
 }
 
 void ofxSVGParticle::randomize() {
-    //positionTarget = ofVec3f(ofRandom(-1000,1000), ofRandom(-1000,1000), ofRandom(-1000,1000));
-    positionTarget = ofVec3f(positionTarget.x, positionTarget.y, ofRandom(-1000,1000));
+    positionTarget = ofVec3f(ofRandom(-1000,1000), ofRandom(-1000,1000), ofRandom(-1000,1000));
+    //positionTarget = ofVec3f(positionTarget.x, positionTarget.y, ofRandom(-1000,1000));
     rotationTarget = ofRandom(-M_PI, M_PI);
     noiseScale = 0.1;
     springTension = 0.2;

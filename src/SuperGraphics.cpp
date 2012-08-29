@@ -4,6 +4,7 @@
 void SuperGraphics::setup(){
     ofBackground(255,255,255);
     ofSetFrameRate(24);
+    ofSetVerticalSync(true);
     
     ofDirectory data(".");
     data.allowExt("svg");
@@ -29,7 +30,7 @@ void SuperGraphics::setup(){
     
     videoPlayer.loadMovie("video-c.MOV");
     videoPlayer.play();
-    videoPlayer.setSpeed(0.5);
+    //videoPlayer.setSpeed(0.5);
     
     //ofSetupScreenPerspective(ofGetWidth(), ofGetHeight(), OF_ORIENTATION_DEFAULT, false, 180, 0, 20000);
     
@@ -86,6 +87,7 @@ void SuperGraphics::draw(){
     ofSetColor(255,255,255);
     ofBackground(255,255,255);
     //background.draw(0,0, ofGetWindowWidth(), ofGetWindowHeight());
+    ofSetColor(255, 255, 255);
     videoPlayer.draw(0,0, ofGetWindowWidth(), ofGetWindowHeight());
     
     camera.begin();
@@ -101,6 +103,10 @@ void SuperGraphics::draw(){
         ofPopMatrix();
     }
     camera.end();
+    
+    ofSetColor(255, 255, 255, scale * 128);
+    videoPlayer.draw(0,0, ofGetWindowWidth(), ofGetWindowHeight());
+
 }
 
 //--------------------------------------------------------------
